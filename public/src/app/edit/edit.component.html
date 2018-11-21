@@ -1,0 +1,43 @@
+<div class="container jumbotron" style="text-align:left">
+  <h5>Edit this pet</h5>
+  <form *ngIf='editPet._id' (submit)="onSubmitEditPet()">
+    <div class='form-group row'>
+      Pet name:: <input style='margin-left: 10px;' class='form-control mx-sm-3' type='text' name='editPet.name'
+        [(ngModel)]='editPet.name' />
+    </div>
+    <div class='form-group row'>
+      Pet type: <input style='margin-left: 10px;' class='form-control mx-sm-3' type='text' name='editPet.type'
+        [(ngModel)]='editPet.type' />
+    </div>
+    <div class='form-group row'>
+      Description: <input style='margin-left: 10px;' class='form-control mx-sm-3' type='text' name='editPet.description'
+        [(ngModel)]='editPet.description' />
+    </div>
+    <div class='container'>
+      <p>Skills (optional)</p>
+      <div class='form-group row'>
+        Skill 1: <input style='margin-left: 10px;' type='text' name='editPet.skill1' [(ngModel)]='editPet.skill1' />
+      </div>
+      <div class='form-group row'>
+        Skill 2: <input style='margin-left: 10px;' type='text' name='editPet.skill2' [(ngModel)]='editPet.skill2' />
+      </div>
+      <div class='form-group row'>
+        Skill 3: <input style='margin-left: 10px;' type='text' name='editPet.skill3' [(ngModel)]='editPet.skill3' />
+      </div>
+    </div>
+
+    <div class='form-group row'>
+      <input class='btn btn-primary' type='submit' value='Update' />
+      <a (click)="tellParentToCloseForm()" routerLinkActive='active' class='btn btn-warning'>Cancel</a>
+    </div>
+    <div *ngIf="errors.errors.name">
+      {{ errors.errors.name.message }}
+    </div>
+    <div *ngIf="errors.errors.type">
+      {{ errors.errors.type.message }}
+    </div>
+    <div *ngIf="errors.errors.description">
+      {{ errors.errors.description.message }}
+    </div>
+  </form>
+</div>

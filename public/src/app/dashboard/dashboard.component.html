@@ -1,0 +1,26 @@
+<p>These pets are looking for a home!</p>
+<a routerLink='/pets/new' routerLinkActive='active' class='btn btn-primary'>Add a pet to the shelter</a>
+<table class='table table-striped' style="margin-top: 15px;">
+  <thead class='thead-dark' >
+    <tr>
+      <th scope='col'>Name</th>
+      <th scope='col'>Type</th>
+      <th scope='col'>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let pet of pets">
+    <td>{{ pet.name }}</td>
+    <td>{{ pet.type }}</td>
+    <!-- <td *ngIf='restaurant.average'>{{ restaurant.average }} stars</td>
+    <td *ngIf='!restaurant.average'>No reviews!</td> -->
+    <td>
+      <a class='btn btn-primary btn-sm' [routerLink]="['/pets', pet._id]">Details</a>
+      <button style='margin-left: 15px;' class='btn btn-success btn-sm' (click)="showEdit(pet._id)">Edit</button>
+      
+      <!-- <button style='margin-left: 15px;' class='btn btn-warning btn-sm' (click)="deleteRestaurantFromService(restaurant._id)">Delete</button> -->
+    </td>
+  </tbody>
+</table>
+<div>
+  <app-edit *ngIf="parentId" [childId]="parentId" (closeForm)="dataFromChild($event)"></app-edit>
+</div>

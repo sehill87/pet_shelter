@@ -1,0 +1,37 @@
+<div class="container jumbotron">
+  <h5>Details about {{ pet.name }}</h5>
+  <a style='text-decoration: underline' routerLink='/' routerLinkActive='active' class=''>Home</a>
+  <ul style='list-style-type:none'>
+    <div>
+      <li>Pet type: {{ pet.name }}</li>
+    </div>
+    <div>
+      <li>Type: {{ pet.type }}</li>
+    </div>
+    <div>
+      <li>Description: {{ pet.description }}</li>
+    </div>
+    <div>
+      <li>Skill 1: {{ pet.skill1 }}</li>
+    </div>
+    <div>
+      <li>Skill 2: {{ pet.skill2 }}</li>
+    </div>
+    <div>
+      <li>Skill 3: {{ pet.skill3 }}</li>
+    </div>
+
+    <div>
+      <li *ngIf='!count'>Likes: 0</li>
+      <li *ngIf='count'>Likes: {{ count }}</li>
+    </div>
+  </ul>
+
+
+
+
+  <button type='button' class='btn btn-primary btn-sm' [disabled] = 'count' (click)='likeThisPet()'>Like this pet!</button>
+  <!-- <a [routerLink]="['/pets', pet._id]" routerLinkActive='active' class='btn btn-primary btn-sm'>Like this pet</a> -->
+  <!-- <a routerLink='/pets' routerLinkActive='active' class='btn btn-warning btn-sm'>Adopt this pet!</a> -->
+  <button style='margin-left: 15px;' class='btn btn-warning btn-sm' (click)="deletePetFromService(pet._id)">Adopt this pet!</button>
+</div>

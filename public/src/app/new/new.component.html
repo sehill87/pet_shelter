@@ -1,0 +1,43 @@
+<div>
+    <h5>Know of a pet needing a home?</h5>
+</div>
+<form (submit)="onSubmitAddPet()">
+
+    <div class='form-group row'>
+        Pet name: <input style='margin-left: 10px;' type='text' name='newPet.name' [(ngModel)]='newPet.name' />
+    </div>
+    <div class='form-group row'>
+        Pet type: <input style='margin-left: 10px;' type='text' name='newPet.type' [(ngModel)]='newPet.type' />
+    </div>
+    <div class='form-group row'>
+        Description: <input style='margin-left: 10px;' type='text' name='newPet.description' [(ngModel)]='newPet.description' />
+    </div>
+    
+    <div class='container'>
+        <p>Skills (optional)</p>
+        <div class='form-group row'>
+            Skill 1: <input style='margin-left: 10px;' type='text' name='newPet.skill1' [(ngModel)]='newPet.skill1' />
+        </div>
+        <div class='form-group row'>
+            Skill 2: <input style='margin-left: 10px;' type='text' name='newPet.skill2' [(ngModel)]='newPet.skill2' />
+        </div>
+        <div class='form-group row'>
+            Skill 3: <input style='margin-left: 10px;' type='text' name='newPet.skill3' [(ngModel)]='newPet.skill3' />
+        </div>
+    </div>
+    <div class='form-group row'>
+        <input class='btn btn-primary' type='submit' value='Add pet' />
+        <a routerLink='/pets' routerLinkActive='active' class='btn btn-secondary'>Cancel</a>
+    </div>
+    
+
+    <div *ngIf="errors.errors.name">
+        {{ errors.errors.name.message }}
+    </div>
+    <div *ngIf="errors.errors.type">
+        {{ errors.errors.type.message }}
+    </div>
+    <div *ngIf="errors.errors.description">
+        {{ errors.errors.description.message }}
+    </div>
+</form>
